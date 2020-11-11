@@ -17,7 +17,8 @@ class CreateRentedBooksTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('book_id');
-            $table->boolean('status')->default(true);
+            $table->string('status')->default("active");
+            $table->boolean('renewal_times')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
